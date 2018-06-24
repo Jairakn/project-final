@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+          <meta charset="utf-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <meta name="description" content="">
+          <meta name="author" content="">
+          <title>ระบบช่วยพยากรณ์พื้นที่เสี่ยงต่อโรคเบาหวานและความดันโลหิตสูงในพื้นที่จังหวัดพิษณุโลก</title>
+          <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+          <link rel="stylesheet" href="bootstrap/css/styles.css">
+          <script src="bootstrap/js/jquery.js"></script>
+          <script src="bootstrap/js/bootstrap.min.js"></script>
+          <script src="bootstrap/js/script.js"></script>
+          <link rel="stylesheet" href="bootstrap/css/responsive.css">
+    </head>
+
+    <body>
+        <div class="container">
+             <div class="col-lg-12">
+                 <form id="pred" method="post" class="form-horizontal text-center">
+                     <img src="images/header.jpg" class="img-responsive" alt="Responsive image">
+                 </form>
+              </div>
+          </div>
+          
+      <div class="container">
+    <!-- พื้นหลัง -->
+
+    		<style>body{background-image:url(images/background.jpg);}</style>
+            <div class="col-lg-12">
+    <!--เมนู-->       
+              <ul class="nav nav-tabs">
+                    <li role="presentation" class="active"><a href="index.html">หน้าแรก</a></li>
+                    <li role="presentation" class="active"><a href="diabetes.html">พยากรณ์โรคเบาหวาน</a></li>
+                    <li role="presentation" class="active"><a href="hypertension.html">พยากรณ์โรคความดันโลหิตสูง</a></li>
+              </ul>
+             <!--สีพื้นหลังฟอร์ม-->
+                <div style="padding: 24px 23px 20px;font-size:20px;position: relative;background-color: #DED7D9;"> 
+                	<form id="input" class="form-horizontal text-center">
+                    <!-- ฟอร์มเนื้อหา -->
+                        <div class="panel panel-info"> 
+                        <!-- หัวข้อย่อย -->
+                        <div align = "center" class="panel-heading"></div>
+                        <h4 style="font-size:20px;" class="panel-title">กรุณาตอบคำถามต่อไปนี้</h4>
+                    <!-- คำถาม -->
+                      <div class="form-body">            
+                          <div class="form-title">
+                        <!--เลือกแำเภอ-->
+                            <br>
+                              <div class="row form-group">
+                                  <div style="font-size:18px;size:3px;" class="col-xs-7 col-sm-7 col-md-7 col-lg-7"><label>1.อำเภอ :</label></div>      
+                                      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                          <select style="font-size:16px;size:3px;" class="form-control" name="input_distr" id="input_distr">
+                                            <option value="value">เลือก</option>
+                                                <option value="mueang">อำเภอเมือง</option>
+                                                <option value="chatt">อำเภอชาติตระการ</option>
+                                                <option value="nakhont">อำเภอนครไทย</option>
+                                                <option value="noenm">อำเภอเนินมะปราง</option>
+                                                <option value="bangk">อำเภอบางกระทุ่ม</option>
+                                                <option value="bangr">อำเภอบางระกำ</option>
+                                                <option value="Phromp">อำเภอพรหมพิราม</option>
+                                                <option value="wangt">อำเภอวังทอง</option> 
+                                                <option value="watb">อำเภอวัดโบสถ์</option> 
+                                            </select> 
+                                        </div>
+                                    </div>                              
+                    <!--กรอกจำนวนประชากรทั้งหมด-->            
+                                  <div class="row form-group">
+                                      <div style="font-size:18px;size:3px;" class="col-xs-7 col-sm-7 col-md-7 col-lg-7"><label>2.จำนวนประชากรทั้งหมด :</label></div>
+                                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                            <input type="text" class="form-control" name ="input_pop" id ="input_pop" placeholder="ตัวอย่าง 56743"> 
+                                        </div>
+                                  </div>
+                    <!--กรอกจำนวนประชากรเพศชาย-->            
+                                <div class="row form-group">
+                                    <div style="font-size:18px;size:3px;" class="col-xs-7 col-sm-7 col-md-7 col-lg-7"><label>3.จำนวนประชากรเพศชาย :</label></div>
+                                      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                          <input type="text" class="form-control" name ="input_male" id ="input_male" placeholder="ตัวอย่าง 56743">
+                                      </div>
+                                </div>
+
+                    <!--กรอกจำนวนประชากรเพศหญิง-->  
+                                <div class="row form-group">
+                                    <div style="font-size:18px;size:3px;" class="col-xs-7 col-sm-7 col-md-7 col-lg-7"><label>4.จำนวนประชากรเพศหญิง :</label></div>
+                                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                        <input type="text" class="form-control" name ="input_female" id ="input_female" placeholder="ตัวอย่าง 56743">
+                                    </div>
+                                </div>
+                    <!--กรอกจำนวนประชากรเอายุ 35-59 ปี -->  
+                                <div class="row form-group">
+                                    <div style="font-size:18px;size:3px;" class="col-xs-7 col-sm-7 col-md-7 col-lg-7"><label>5.จำนวนประชากรกลุ่มเสี่ยง(อายุ 35-59 ปี) :</label></div>
+                                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                        <input type="text" class="form-control" name ="input_risk" id ="input_risk" placeholder="ตัวอย่าง 56743">
+                                    </div>
+                                </div>
+                    <!--กรอกจำนวนประชากรเผู้สูงอายุุ 60 ปีขึ้นไป -->  
+                                <div class="row form-group">
+                                    <div style="font-size:18px;size:3px;" class="col-xs-7 col-sm-7 col-md-7 col-lg-7"><label>6.จำนวนประชากรผู้สูงอายุ(อายุ 60 ปีขึ้นไป) :</label></div>
+                                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                        <input type="text" class="form-control" name ="input_old" id ="input_old" placeholder="ตัวอย่าง 56743">
+                                    </div>
+                                </div>
+                    <!--กรอกรายได้เฉลี่ยต่อปี-->  
+                                <div class="row form-group">
+                                    <div style="font-size:18px;size:3px;" class="col-xs-7 col-sm-7 col-md-7 col-lg-7"><label>7.รายได้เฉลี่ยต่อปี :</label></div>
+                                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                        <input type="text" class="form-control" name ="input_income" id ="input_income" placeholder="ตัวอย่าง 56743">
+                                    </div>
+                                </div>
+                    <!--กรอกจำนวนโรงพยาบาลส่งเสริมสุขภาพชมชุน--> 
+                                <div class="row form-group">
+                                    <div style="font-size:18px;size:3px;" class="col-xs-7 col-sm-7 col-md-7 col-lg-7"><label>8.จำนวนโรงพยาบาลส่งเสริมสุขภาพชมชุน :</label></div>
+                                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">                                                       
+                                        <input type="text" class="form-control" name ="input_hospital" id ="input_hospital" placeholder="ตัวอย่าง 12">
+                                    </div>
+                                </div>
+                    <!--กรอกจำนวนผู้ป่วยโรคความดันโลหิตสูง--> 
+                                <div class="row form-group">
+                                    <div style="font-size:18px;size:3px;" class="col-xs-7 col-sm-7 col-md-7 col-lg-7"><label>9.จำนวนผู้ป่วยโรคความดันโลหิตสูง :</label></div>
+                                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                        <input type="text" class="form-control" name ="input_hyper" id ="input_hyper" placeholder="ตัวอย่าง 4675">
+                                    </div>
+                                </div>
+                                           
+                                <div align = "center" class="form-group">
+                                    <button onclick="Results()" type="submit" class="btn btn-primary">พยากรณ์</button>
+                                </div> <!-- ปิดปุ่มกด -->  
+                            <br>   
+
+                    </div> <!--ปิดฟอร์ม title-->
+                    </div><!--ปิดฟอร์ม body-->
+                    </div><!--ปิดฟอร์ม penel-->
+                </form>
+            </div>
+        </div> 
+    </div> <!-- เนื้อหาแรก -->
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+          <script src="js/bootstrap.min.js"></script>
+    </body>
+</html>
+
+  
+              <SCRIPT language = javascript>
+
+                function Results() {
+
+                    var distrs = document.getElementById('input_distr');
+                    var distr = distrs.options[distrs.selectedIndex].value;
+
+                    var pop = document.getElementById('input_pop').value;
+                    var male = document.getElementById('input_male').value;
+                    var female = document.getElementById('input_female').value;
+                    var risk = document.getElementById('input_risk').value;
+                    var old = document.getElementById('input_old').value;
+                    var income = document.getElementById('input_income').value;
+                    var hospital = document.getElementById('input_hospital').value;
+                    var hyper = document.getElementById('input_hyper').value;
+
+    //ปรับค่าจาก textbox
+
+                          if (pop == 0)
+                          {
+                            pop = null;
+                          }
+                          if (male == 0)
+                          {
+                            male = null;
+                          }
+                          if (female == 0)
+                          {
+                            female = null;
+                          }
+                          if (risk == 0)
+                          {
+                            risk = null;
+                          }
+                          if (old == 0)
+                          {
+                            old = null;
+                          }
+                          if (income == 0)
+                          {
+                            income = null;
+                          }
+                          if (hospital == 0)
+                          {
+                            hospital = null;
+                          }
+                          if (hyper == 0)
+                          {
+                            hyper = null;
+                          }
+
+      //เช็คค่าที่รับเข้ามา
+
+                        if (distr == null || pop == null || male == null || female == null || risk == null || old == null || income == null || hospital == null || hyper == null)
+                          {
+                             alert ("กรุณากรอกข้อมูลให้ครบถ้วน")  
+                          }
+       //กฏของระบบ //     
+                        else if (distr == 'bangk' && risk <= 18570) 
+                          {
+                            alert ("ระดับความเสี่ยงสูง")
+                           
+                          }
+                        else if (distr == 'bangk' && risk > 18570)
+                          {
+                            alert ("ระดับความเสี่ยงปานกลาง")
+                            
+                          }
+                        else if (distr == 'bangr' && pop <= 94832)
+                          {
+                            alert ("ระดับความเสี่ยงตำ่")
+                            
+                          }
+                        else if (distr == 'bangr' && pop > 94832 && income <= 85551.5)
+                          {
+                            alert ("ระดับความเสี่ยงตำ่")
+                           
+                          }
+                        else if (distr == 'bangr' && pop > 94832 && income > 85551.5 && hyper <= 8849.5)
+                          {
+                            alert ("ระดับความเสี่ยงตำ่")
+                           
+                          }
+                        else if (distr == 'bangr' && pop > 94832 && income > 85551.5 && hyper > 8849.5 )
+                          {
+                            alert ("ระดับความเสี่ยงปานกลาง")
+                           
+                          }
+                        else if (distr == 'chatt')
+                          {
+                            alert ("ระดับความเสี่ยงต่ำ")
+                            
+                          }
+                        else if (distr == 'mueang')
+                          {
+                            alert ("ระดับความเสี่ยงตำ่")
+                            
+                          }
+                        else if (distr == 'nakhont' && pop <= 86684)
+                          {                          
+                            alert ("ระดับความเสี่ยงตำ่")
+                            
+                          }
+                        else if (distr == 'nakhont' && pop > 86684)
+                          {
+                            alert ("ระดับความเสี่ยงปานกลาง")
+                            
+                          }
+                        else if (distr == 'noenm')
+                          {
+                            alert ("ระดับความเสี่ยงตำ่")
+                            
+                          }
+                        else if (distr == 'Phromp' && old <= 13854)
+                          {
+                            alert ("ระดับความเสี่ยงตำ่")
+                            
+                          }
+                        else if (distr == 'Phromp' && old > 13854)
+                          {
+                            alert ("ระดับความเสี่ยงสูง")
+                            
+                          }
+                        else if (distr == 'wangt' && pop <= 120535)
+                          {
+                            alert ("ระดับความเสี่ยงตำ่")
+                           
+                          }
+                        else if (distr == 'wangt' && pop > 120535)
+                          {
+                            alert ("ระดับความเสี่ยงปานกลาง")
+                            
+                          }
+                        else if (distr == 'watb' && pop <= 37573)
+                          {
+                            alert ("ระดับความเสี่ยงตำ่")
+                           
+                          }
+                        else if (distr == 'watb' && pop > 37573 && hyper <= 3564)
+                          {
+                            alert ("ระดับความเสี่ยงตำ่")
+                            
+                          }
+                        else if (distr == 'watb' && pop > 37573 && hyper > 3564 && income <= 66428.5)
+                          {
+                            alert ("ระดับความเสี่ยงตำ่")
+                           
+                          }
+                        else if (distr == 'watb' && pop > 37573 && hyper > 3564 && income > 66428.5)
+                          {
+                            alert ("ระดับความเสี่ยงสูง")
+                            
+                          }
+                        else
+                            alert ("error")
+                          }
+                                              
+            </SCRIPT>
